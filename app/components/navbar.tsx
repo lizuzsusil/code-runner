@@ -1,18 +1,20 @@
+'use client'
 import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
-import codeRunnerLogo from "@/app/assets/img/codeRunner_.png"
-import Button from "@/app/components/button";
+
 import {IoPlay} from "react-icons/io5";
 import {IoStop} from "react-icons/io5";
 import {IoReorderThree} from "react-icons/io5";
-import Select from "@/app/components/select";
 
-const languageOptions = ['python', 'html', 'javascript', 'java', 'c++', 'rust', 'php'];
+import codeRunnerLogo from "@/app/assets/img/codeRunner_.png"
+import Button from "@/app/components/button";
+import Select from "@/app/components/select";
+import {languageOptions} from "@/app/constants/contants";
 
 function Navbar() {
     return (
-        <nav className="fixed top-0 z-50 w-full bg-gray-800">
+        <nav className="fixed top-0 z-50 w-full bg-gray-800 py-1 px-2.5">
             <div className="px-3 py-1 lg:px-5 lg:pl-3">
                 <div className="flex items-center justify-between flex-wrap">
                     <div className="flex items-center gap-4">
@@ -24,7 +26,7 @@ function Navbar() {
                         <Link href="/" className="flex items-center py-[8px]">
                             <Image
                                 src={codeRunnerLogo}
-                                className="h-10 w-10 me-3"
+                                className="h-10 w-10 me-5"
                                 alt="Code Runner logo"/>
                             <span
                                 className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Code Runner</span>
