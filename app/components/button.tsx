@@ -1,31 +1,18 @@
-import React, {ButtonHTMLAttributes, ReactNode, useMemo} from 'react';
+'use client'
+import React, {ButtonHTMLAttributes, ReactNode } from 'react';
+import {buttonVariantStyles} from "@/app/constants/contants";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     icon?: ReactNode;
     buttonText: string;
     styleClass?: string;
-    variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
     isLoading?: boolean;
+    variant?: 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
 }
 
 function Button({icon, buttonText, styleClass, variant = 'primary', ...rest}: ButtonProps) {
+    const buttonClass = `flex items-center px-4 py-1 rounded-md disabled:cursor-not-allowed transition-all duration-200 ease-in-out ${buttonVariantStyles[variant]} ${styleClass ?? ''}`
 
-    const buttonVariant = useMemo(() => {
-        switch (variant) {
-            case 'secondary':
-                return 'gray';
-            case 'success':
-                return 'green';
-            case 'warning':
-                return 'yellow';
-            case 'danger':
-                return 'red';
-            default:
-                return 'blue';
-        }
-    }, [variant]);
-
-    const buttonClass = `flex items-center bg-${buttonVariant}-600 px-4 py-1 rounded-md hover:bg-bg-${buttonVariant}-800 disabled:bg-bg-${buttonVariant}-800 disabled:cursor-not-allowed ${styleClass}`
     return (
         <button
             className={buttonClass}
