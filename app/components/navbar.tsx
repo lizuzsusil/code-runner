@@ -3,12 +3,9 @@ import React from 'react';
 import Link from "next/link";
 import Image from "next/image";
 
-import {IoPlay} from "react-icons/io5";
-import {IoStop} from "react-icons/io5";
 import {IoReorderThree} from "react-icons/io5";
 
 import codeRunnerLogo from "@/app/assets/img/codeRunner_.png"
-import Button from "@/app/components/button";
 import Select from "@/app/components/select";
 import {editorThemes, languageOptions} from "@/app/constants/contants";
 import {useSelection} from "@/app/context/selectionContext";
@@ -40,12 +37,10 @@ function Navbar() {
                     </div>
                     <div className="flex gap-2 lg:gap-6 items-center">
                         <Select options={languageOptions} title={'language'} value={selectedValue}
-                                onChange={(e) => setSelectedValue(e.target.value)}/>
+                                onChange={(e) => {
+                                    setSelectedValue(e.target.value)
+                                }}/>
                         <Select options={editorThemes} title={'theme'} onChange={(e) => setTheme(e.target.value)}/>
-                        <div className="flex gap-2">
-                            <Button buttonText={'Run'} variant={'success'} icon={<IoPlay/>}/>
-                            <Button buttonText={'Stop'} variant={'danger'} icon={<IoStop/>}/>
-                        </div>
                     </div>
                 </div>
             </div>
