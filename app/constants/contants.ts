@@ -1,4 +1,46 @@
-export const languageOptions = ['python', 'html', 'javascript', 'java', 'c++', 'rust', 'php'];
+export const languageOptions = [
+    {label: "Python", value: "python"},
+    {label: "Html", value: "html"},
+    {label: "Javascript", value: "javascript"},
+    {label: "Java", value: "java"},
+    {label: "C++", value: "c++"},
+    {label: "Rust", value: "rust"},
+    {label: "Php", value: "php"}
+];
+
+export const editorThemes = [
+    {
+        label: 'Android Studio',
+        value: 'androidstudio',
+    },
+    {
+        label: 'GitHub Dark',
+        value: 'githubDark',
+    },
+    {
+        label: 'GitHub Light',
+        value: 'githubLight',
+    },
+    {
+        label: 'Gruvbox Dark',
+        value: 'gruvboxDark',
+    },
+    {
+        label: 'Gruvbox Light',
+        value: 'gruvboxLight',
+    },
+    {
+        label: 'Solarized Dark',
+        value: 'solarizedDark',
+    },
+    {
+        label: 'Solarized Light',
+        value: 'solarizedLight',
+    },
+    {
+        label: 'XCode Dark',
+        value: 'xcodeDark',
+    }]
 
 export const buttonVariantStyles = {
     primary: 'bg-blue-600 hover:bg-blue-800 disabled:bg-blue-800',

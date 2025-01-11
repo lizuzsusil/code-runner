@@ -10,9 +10,15 @@ import {IoReorderThree} from "react-icons/io5";
 import codeRunnerLogo from "@/app/assets/img/codeRunner_.png"
 import Button from "@/app/components/button";
 import Select from "@/app/components/select";
-import {languageOptions} from "@/app/constants/contants";
+import {editorThemes, languageOptions} from "@/app/constants/contants";
+import {useSelection} from "@/app/context/selectionContext";
+import {useTheme} from "@/app/context/themeContext";
 
 function Navbar() {
+
+    const {setSelectedValue, selectedValue} = useSelection();
+    const {setTheme} = useTheme();
+
     return (
         <nav className="fixed top-0 z-50 w-full bg-gray-800 py-1 px-2.5">
             <div className="px-3 py-1 lg:px-5 lg:pl-3">
@@ -33,7 +39,9 @@ function Navbar() {
                         </Link>
                     </div>
                     <div className="flex gap-2 lg:gap-6 items-center">
-                        <Select options={languageOptions} title={'language'} />
+                        <Select options={languageOptions} title={'language'} value={selectedValue}
+                                onChange={(e) => setSelectedValue(e.target.value)}/>
+                        <Select options={editorThemes} title={'theme'} onChange={(e) => setTheme(e.target.value)}/>
                         <div className="flex gap-2">
                             <Button buttonText={'Run'} variant={'success'} icon={<IoPlay/>}/>
                             <Button buttonText={'Stop'} variant={'danger'} icon={<IoStop/>}/>
